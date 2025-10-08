@@ -1,74 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet"
-    />
-    <title>Aventura na Caverna Misteriosa</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aventura na Caverna Misteriosa — Teste</title>
+  <style>
+    body {
+      background-color: #2b0500;
+      color: white;
+      font-family: "Bai Jamjuree", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    main { text-align: center; max-width: 90%; }
+    img { max-width: 90%; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
+    button {
+      background-color: #64a712;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      margin: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .passo { display: none; opacity: 0; transition: opacity 0.35s ease; }
+    .passo.ativo { display: block; opacity: 1; }
+  </style>
 </head>
 <body>
-    <main>
-        <div class="passo ativo" id="passo-0">
-            <img src="img/entrada-caverna.png" alt="" />
-            <p>Você encontrou um antigo mapa que indica a existência de uma caverna misteriosa repleta de segredos e tesouros ocultos. Decidido, você parte para explorá-la!</p>
-            <button class="btn-proximo" data-proximo="1">Entrar pela caverna principal</button>
-            <button class="btn-proximo" data-proximo="2">Explorar uma fenda lateral</button>
-        </div>
-        <div class="passo" id="passo-1">
-            <p>Você avança pela caverna principal e logo encontra uma bifurcação: um túnel iluminado por cristais brilhantes e outro totalmente escuro.</p>
-            <button class="btn-proximo" data-proximo="3">Seguir pelo túnel iluminado</button>
-            <button class="btn-proximo" data-proximo="4">Seguir pelo túnel escuro</button>
-        </div>
-        <div class="passo" id="passo-2">
-            <p>A fenda lateral é estreita e você precisa rastejar para continuar. Depois de um tempo, chega a uma câmara com inscrições antigas nas paredes.</p>
-            <button class="btn-proximo" data-proximo="5">Ler as inscrições</button>
-            <button class="btn-proximo" data-proximo="6">Ignorar e voltar para a entrada</button>
-        </div>
-        <div class="passo" id="passo-3">
-            <p>No túnel iluminado pelos cristais, você encontra um lago subterrâneo com uma pequena embarcação.</p>
-            <button class="btn-proximo" data-proximo="7">Usar o barco para atravessar o lago</button>
-            <button class="btn-proximo" data-proximo="8">Voltar e tentar o túnel escuro</button>
-        </div>
-        <div class="passo" id="passo-4">
-            <img src="img/caverna-tunel-escuro.png" alt="" />
-            <p>No túnel escuro, você tropeça e decide que é melhor não arriscar mais.</p>
-            <button class="btn-proximo" data-proximo="1">Voltar para a bifurcação e seguir pelo túnel iluminado</button>
-        </div>
-        <div class="passo" id="passo-5">
-            <p>As inscrições falam sobre um tesouro guardado por um enigma. Para prosseguir, você precisa resolver o enigma.</p>
-            <button class="btn-proximo" data-proximo="9">Tentar resolver o enigma</button>
-            <button class="btn-proximo" data-proximo="6">Voltar e explorar a caverna principal</button>
-        </div>
-        <div class="passo" id="passo-6">
-            <p>Você volta para a entrada da caverna, pensando em um novo plano.</p>
-            <button class="btn-proximo" data-proximo="0">Começar a aventura novamente</button>
-        </div>
-        <div class="passo" id="passo-7">
-            <p>Ao atravessar o lago, você chega a uma câmara cheia de artefatos antigos e um baú fechado.</p>
-            <button class="btn-proximo" data-proximo="10">Abrir o baú</button>
-            <button class="btn-proximo" data-proximo="8">Voltar para o túnel iluminado</button>
-        </div>
-        <div class="passo" id="passo-8">
-            <p>De volta ao túnel iluminado, você se prepara para tentar outra passagem.</p>
-            <button class="btn-proximo" data-proximo="4">Tentar o túnel escuro</button>
-        </div>
-        <div class="passo" id="passo-9">
-            <p>Você resolve o enigma: "O que tem cabeça, mas não pensa?".
+  <main>
+    <div class="passo ativo" id="passo-0">
+      <img src="https://via.placeholder.com/600x200?text=Entrada+da+Caverna" alt="">
+      <p>Você encontrou um antigo mapa que indica a existência de uma caverna misteriosa repleta de segredos e tesouros ocultos. Decidido, você parte para explorá-la!</p>
+      <!-- coloque type="button" para evitar comportamento de submit -->
+      <button type="button" class="btn-proximo" data-proximo="1">Entrar pela caverna principal</button>
+      <button type="button" class="btn-proximo" data-proximo="2">Explorar uma fenda lateral</button>
+    </div>
 
-                <strong>Resposta:</strong> Uma flecha!</p>
-            <button class="btn-proximo" data-proximo="7">Seguir para o lago subterrâneo</button>
-        </div>
-        <div class="passo" id="passo-10">
-            <img src="img/caverna-tesouro.png" alt="" />
-            <p>Dentro do baú, você encontra um tesouro incrível! Sua aventura na caverna misteriosa foi um sucesso.</p>
-        </div>
-    </main>
-    <script src="script.js"></script>
+    <div class="passo" id="passo-1">
+      <p>Você avança pela caverna principal e logo encontra uma bifurcação: um túnel iluminado por cristais brilhantes e outro totalmente escuro.</p>
+      <button type="button" class="btn-proximo" data-proximo="3">Seguir pelo túnel iluminado</button>
+      <button type="button" class="btn-proximo" data-proximo="4">Seguir pelo túnel escuro</button>
+    </div>
+
+    <div class="passo" id="passo-2">
+      <p>A fenda lateral é estreita e você precisa rastejar para continuar. Depois de um tempo, chega a uma câmara com inscrições antigas nas paredes.</p>
+      <button type="button" class="btn-proximo" data-proximo="5">Ler as inscrições</button>
+      <button type="button" class="btn-proximo" data-proximo="6">Ignorar e voltar para a entrada</button>
+    </div>
+
+    <div class="passo" id="passo-3">
+      <p>No túnel iluminado pelos cristais, você encontra um lago subterrâneo com uma pequena embarcação.</p>
+      <button type="button" class="btn-proximo" data-proximo="7">Usar o barco para atravessar o lago</button>
+      <button type="button" class="btn-proximo" data-proximo="8">Voltar e tentar o túnel escuro</button>
+    </div>
+
+    <div class="passo" id="passo-4">
+      <img src="https://via.placeholder.com/600x200?text=Tunel+Escuro" alt="">
+      <p>No túnel escuro, você tropeça e decide que é melhor não arriscar mais.</p>
+      <button type="button" class="btn-proximo" data-proximo="1">Voltar para a bifurcação e seguir pelo túnel iluminado</button>
+    </div>
+
+    <div class="passo" id="passo-5">
+      <p>As inscrições falam sobre um tesouro guardado por um enigma. Para prosseguir, você precisa resolver o enigma.</p>
+      <button type="button" class="btn-proximo" data-proximo="9">Tentar resolver o enigma</button>
+      <button type="button" class="btn-proximo" data-proximo="6">Voltar e explorar a caverna principal</button>
+    </div>
+
+    <div class="passo" id="passo-6">
+      <p>Você volta para a entrada da caverna, pensando em um novo plano.</p>
+      <button type="button" class="btn-proximo" data-proximo="0">Começar a aventura novamente</button>
+    </div>
+
+    <div class="passo" id="passo-7">
+      <p>Ao atravessar o lago, você chega a uma câmara cheia de artefatos antigos e um baú fechado.</p>
+      <button type="button" class="btn-proximo" data-proximo="10">Abrir o baú</button>
+      <button type="button" class="btn-proximo" data-proximo="8">Voltar para o túnel iluminado</button>
+    </div>
+
+    <div class="passo" id="passo-8">
+      <p>De volta ao túnel iluminado, você se prepara para tentar outra passagem.</p>
+      <button type="button" class="btn-proximo" data-proximo="4">Tentar o túnel escuro</button>
+    </div>
+
+    <div class="passo" id="passo-9">
+      <p>Você resolve o enigma: "O que tem cabeça, mas não pensa?". <strong>Resposta:</strong> Uma flecha!</p>
+      <button type="button" class="btn-proximo" data-proximo="7">Seguir para o lago subterrâneo</button>
+    </div>
+
+    <div class="passo" id="passo-10">
+      <img src="https://via.placeholder.com/600x200?text=Tesouro" alt="">
+      <p>Dentro do baú, você encontra um tesouro incrível! Sua aventura na caverna misteriosa foi um sucesso.</p>
+    </div>
+  </main>
+
+  <script>
+    // Script robusto com logs — roda depois que o HTML carrega
+    document.addEventListener('DOMContentLoaded', function () {
+      const main = document.querySelector('main');
+
+      // Se por algum motivo não encontrou "main"
+      if (!main) {
+        console.error('Elemento <main> não encontrado.');
+        return;
+      }
+
+      main.addEventListener('click', function (ev) {
+        const btn = ev.target.closest('.btn-proximo');
+        if (!btn) return; // clicou em outra coisa
+
+        ev.preventDefault();
+        const proximoId = btn.getAttribute('data-proximo');
+        console.log('Clique detectado -> data-proximo =', proximoId);
+
+        const passoAtual = document.querySelector('.passo.ativo');
+        const proximoPasso = document.getElementById('passo-' + proximoId);
+
+        if (!proximoPasso) {
+          console.error('Próximo passo não encontrado: passo-' + proximoId);
+          // mostra um aviso visual rápido (opcional)
+          btn.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(-6px)' }, { transform: 'translateY(0)' }], { duration: 250 });
+          return;
+        }
+
+        if (passoAtual) passoAtual.classList.remove('ativo');
+        proximoPasso.classList.add('ativo');
+      });
+
+      console.log('Script carregado — pronto para receber cliques.');
+    });
+  </script>
 </body>
 </html>
